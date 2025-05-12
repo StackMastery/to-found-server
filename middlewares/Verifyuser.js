@@ -10,13 +10,14 @@ const VerifyUser = async (req, res, next) => {
   // }
 
   try {
-    const decodeToken = jwt.verify(token, process.env.JWT_SECRET);
+    // const decodeToken = jwt.verify(token, process.env.JWT_SECRET);
 
-    if (decodeToken.uid === uid) {
-      return next();
-    } else {
-      return res.status(200).send("Unautorized user");
-    }
+    // if (decodeToken.uid === uid) {
+    //   return next();
+    // } else {
+    //   return res.status(200).send("Unautorized user");
+    // }
+    next();
   } catch (err) {
     return res.status(200).send("Unautorized user");
   }
